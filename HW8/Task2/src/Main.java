@@ -4,26 +4,23 @@ public class Main {
     public static void main(String[] args) {
         //todo код программы писать тут
 
-        int [] array = new int [10];
         Random random = new Random();
 
-        for(int i = 0; i < array.length; i++ ) {
-            array[i] += random.nextDouble(40, 100);
-        }
+        double [] weights = new double [10];
+        double middleWeigth = 0;
+        int peopleCount = 0;
 
-        int summ = 0;
-        for (int i = 0; i < array.length; i++ ) {
-            summ += array[i];
-        }
+        for(int i = 0; i < weights.length; i++ ) {
+            weights[i] += random.nextDouble() * 60 + 40;
+            middleWeigth += weights[i];
 
-        int humans = 0;
-        for(int i = 0; i < array.length; i++ ) {
-            if (array[i] >= 60 && array[i] <= 80) {
-                humans += 1;
+            if (weights[i] >= 60 && weights[i] <= 80) {
+                peopleCount++;
             }
         }
 
-        System.out.println(humans);
-        System.out.println(summ/ array.length);
+        System.out.println("Средней вес всех людей: " + middleWeigth/ weights.length);
+        System.out.println("Количество людей: " + peopleCount);
+
     }
 }
